@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+const leerexcel = require("../public/javascripts/Scripts");
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -7,8 +8,11 @@ router.get('/', function(req, res, next) {
 });
 
 /* GET ticketlist page. */
-router.get('/tickets', function(req, res, next) {
-  res.render('ticketlist', { title: 'Express' });
+router.get('/ticketlist', function(req, res, next) {
+
+ var worksheets=leerexcel.leerhoja;
+ res.render('ticketlist', { title: 'Express', tickets: worksheets });
+
 });
 
 module.exports = router;
